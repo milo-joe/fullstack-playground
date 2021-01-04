@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>RTC basic chat</title>
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>  
+    <script defer src="client.js"></script>
+</head>
+<body>
+    <div id="room-container">
+        <% Object.keys(rooms).forEach(room =>{ %>
+            <div> <%= room %>  </div> 
+            <a href="/<%= room  %> ">Join</a>
+        <% }) %>
+    </div>
+    <form action="/room" method="POST">
+        <input type="text" name="room" required>
+        <button type="submit"> New room</button>
+    </form>
+</body>
+</html>
